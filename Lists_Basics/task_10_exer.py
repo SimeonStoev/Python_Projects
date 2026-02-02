@@ -7,11 +7,13 @@ all_events_completed = True
 for elem in events:
     event = elem.split("-")
     if event[0] == "rest":
+        prev_initial_energy = initial_energy
+        gained_energy = int(event[1])
         initial_energy += int(event[1])
         if initial_energy > 100:
             initial_energy = 100
-            event[1] = '0'
-        print(f"You gained {int(event[1])} energy.")
+            gained_energy = 100 - prev_initial_energy
+        print(f"You gained {gained_energy} energy.")
         print(f"Current energy: {initial_energy}.")
     elif event[0] == "order":
         if initial_energy - 30 < 0:
@@ -34,3 +36,4 @@ if all_events_completed:
     print("Day completed!")
     print(f"Coins: {initial_coins}")
     print(f"Energy: {initial_energy}")
+
