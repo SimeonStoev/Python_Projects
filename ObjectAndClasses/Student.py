@@ -23,7 +23,7 @@ class Student:
         return f"Name: {self.__name}, age: {self.__age}, school: {self.__school}"
 
     def is_student_sophmor(self):
-        return self.__age <= 18
+        return self.__age <= 14
 
 student1 = Student("John", "25", "EG")
 student2 = Student("Elon", "27", "PMG")
